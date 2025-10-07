@@ -54,7 +54,8 @@ INSERT INTO vendas (data_venda, id_produto, id_cliente, quantidade, valor_total)
 ('2025-10-06', 1, 1, 10, 25.00),
 ('2025-10-06', 2, 2, 2, 50.00);
 
-SELECT * FROM clientes;
+SELECT * 
+FROM clientes;
 
 SELECT 
     v.id_venda,
