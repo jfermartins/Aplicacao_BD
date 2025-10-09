@@ -99,8 +99,8 @@ JOIN Aula08_Clientes c ON v.id_cliente = c.id_cliente
 JOIN Aula08_Produtos p ON v.id_produto = p.id_produto
 JOIN Aula08_Fornecedores f ON p.id_fornecedor = f.id_fornecedor;
 
--- A coordenação pedagógica solicitou que você desenvolva um sistema para organizar comentários e avaliações
--- feitos por alunos sobre os professores e cursos.
+-- Você foi contratado para criar o banco de dados de uma locadora de carros. 
+-- O sistema precisa armazenar informações sobre os clientes, os automóveis disponíveis e as locações realizadas. 
 
 USE DB_03361B_JFERNANDA_AULA06;
 
@@ -229,9 +229,8 @@ WHERE
     AND L.id_cliente = C.id_cliente
     AND '2025-09-12' BETWEEN L.data_inicio_locacao AND L.data_fim_locacao;
 
-
--- Você foi contratado para criar o banco de dados de uma locadora de carros. 
--- O sistema precisa armazenar informações sobre os clientes, os automóveis disponíveis e as locações realizadas. 
+-- A coordenação pedagógica solicitou que você desenvolva um sistema para organizar comentários e avaliações
+-- feitos por alunos sobre os professores e cursos.
 
 USE DB_03361B_JFERNANDA_AULA06;
 
@@ -319,7 +318,6 @@ INSERT INTO Comentario (comentario, nota_professor, id_aluno, id_professor, id_c
 VALUES
 ('Ótima didática, aula muito clara!', 9.5, 1, 1, 1), 
 ('A matéria é complexa, mas o professor explica bem.', 8.0, 3, 1, 2),
-('A professora é uma inspiração! Adorei a aula.', 10.0, 2, 2, 1),
 ('A professora é uma inspiração! Adorei a aula.', 10.0, 2, 2, 1),
 ('Gostei dos exemplos práticos.', 8.5, 4, 2, 3),
 ('Achei a avaliação muito difícil e o conteúdo corrido.', 5.5, 3, 3, 2),
