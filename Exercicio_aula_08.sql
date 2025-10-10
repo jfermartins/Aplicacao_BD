@@ -99,6 +99,8 @@ JOIN Aula08_Clientes c ON v.id_cliente = c.id_cliente
 JOIN Aula08_Produtos p ON v.id_produto = p.id_produto
 JOIN Aula08_Fornecedores f ON p.id_fornecedor = f.id_fornecedor;
 
+
+
 -- Você foi contratado para criar o banco de dados de uma locadora de carros. 
 -- O sistema precisa armazenar informações sobre os clientes, os automóveis disponíveis e as locações realizadas. 
 
@@ -198,7 +200,7 @@ JOIN
 WHERE 
     '2025-09-12' BETWEEN L.data_inicio_locacao AND L.data_fim_locacao;
     
-    SELECT 
+SELECT 
     C.nome,
     C.sobrenome,
     A.marca,
@@ -229,6 +231,9 @@ WHERE
     AND L.id_cliente = C.id_cliente
     AND '2025-09-12' BETWEEN L.data_inicio_locacao AND L.data_fim_locacao;
 
+
+    
+    
 -- A coordenação pedagógica solicitou que você desenvolva um sistema para organizar comentários e avaliações
 -- feitos por alunos sobre os professores e cursos.
 
@@ -346,6 +351,7 @@ JOIN
     Curso c ON pc.id_curso = c.id_curso
 ORDER BY
     p.nome_professor, c.nome_curso;
+
     
 SELECT
     p.nome_professor,
@@ -361,6 +367,8 @@ JOIN
     Aluno a ON c.id_aluno = a.id_aluno
 ORDER BY
     p.nome_professor, c.nota_professor DESC;
+
+
     
 SELECT
     p.nome_professor,
@@ -375,6 +383,8 @@ JOIN
     Aluno a ON c.id_aluno = a.id_aluno
 WHERE
     c.nota_professor < 6.0;
+
+
     
 SELECT
     p.nome_professor,
@@ -391,6 +401,8 @@ WHERE
     c.nota_professor > 6.0
 ORDER BY
     c.nota_professor DESC;
+
+
     
 SELECT
     p.nome_professor,
@@ -404,6 +416,8 @@ GROUP BY
     p.id_professor, p.nome_professor
 ORDER BY
     media_das_notas DESC;
+
+
     
 SELECT
     p.nome_professor,
@@ -417,6 +431,7 @@ GROUP BY
     p.id_professor, p.nome_professor
 ORDER BY
     media_das_notas DESC;
+
     
     
 SELECT
@@ -444,6 +459,7 @@ WHERE
     AND pc.id_curso = c.id_curso
 ORDER BY
     p.nome_professor, c.nome_curso;
+
     
 
 SELECT
@@ -476,6 +492,7 @@ LEFT JOIN
 WHERE
     a.id_aluno IS NULL;
     
+
 SELECT
     id_curso,
     nome_curso
