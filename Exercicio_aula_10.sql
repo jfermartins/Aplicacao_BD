@@ -24,7 +24,7 @@ CREATE TABLE Contatos_Grupos (
     FOREIGN KEY (id_grupo) REFERENCES Grupos_de_Contato(id_grupo)
 );
 
--- Criação da tabela Telefones (com ligação direta a Contatos, permitindo múltiplos telefones por contato)
+-- Tabela Telefones (com ligação direta a Contatos, permitindo múltiplos telefones por contato)
 CREATE TABLE Telefones (
     id_telefone INT PRIMARY KEY AUTO_INCREMENT,
     numero VARCHAR(20) NOT NULL,
