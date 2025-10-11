@@ -17,6 +17,7 @@ CREATE TABLE Contatos (
 CREATE TABLE Contatos_Grupos (
     id_contato INT NOT NULL,
     id_grupo INT NOT NULL,
+    CONSTRAINT pk_Contatos_Grupos
     PRIMARY KEY (id_contato, id_grupo),
     CONSTRAINT fk_contatos
     FOREIGN KEY (id_contato) REFERENCES Contatos(id_contato),
