@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS Filmes (
     ano_lancamento INT,
     nota_avaliacao DECIMAL(3,1),
     id_genero INT,
+    CONSTRAINT fk_filmes_genero
     FOREIGN KEY (id_genero) REFERENCES Generos(id_genero)
 );
 
