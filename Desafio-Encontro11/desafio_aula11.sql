@@ -1,8 +1,6 @@
-USE DB_03361B_JFERNANDA_AULA06;
-
 -- Criação do banco de dados
-CREATE DATABASE IF NOT EXISTS locadora_db;
-USE locadora_db;
+CREATE DATABASE IF NOT EXISTS locadora_db_Jane;
+USE locadora_db_Jane;
 
 -- Criação da tabela Generos
 CREATE TABLE IF NOT EXISTS Generos (
@@ -22,7 +20,6 @@ CREATE TABLE IF NOT EXISTS Filmes (
 );
 
 
-USE locadora_db;
 
 -- Inserção de dados na tabela Generos
 INSERT IGNORE INTO Generos (nome_genero) VALUES
@@ -53,20 +50,22 @@ INSERT INTO Filmes (titulo, ano_lancamento, nota_avaliacao, id_genero) VALUES
 ('Vingadores: Ultimato', 2019, 8.4, (SELECT id_genero FROM Generos WHERE nome_genero = 'Ação')),
 ('Clube da Luta', 1999, 8.8, (SELECT id_genero FROM Generos WHERE nome_genero = 'Drama'));
 
--- Clássicos do Século XX: Quais filmes do catálogo foram lançados antes do ano 2000?
+-- 1) Clássicos do Século XX: Quais filmes do catálogo foram lançados antes do ano 2000?
 SELECT titulo, ano_lancamento FROM Filmes WHERE ano_lancamento < 2000;
 
--- Aclamados pela Crítica: Quais filmes têm uma nota de avaliação maior ou igual a 8.8?
+-- 2) Aclamados pela Crítica: Quais filmes têm uma nota de avaliação maior ou igual a 8.8?
 SELECT titulo, nota_avaliacao FROM Filmes WHERE nota_avaliacao >= 8.8;
 
--- Ficção Científica Moderna: Quais filmes são do gênero 'Ficção Científica' E foram lançados a partir de 2010?
+-- 3) Ficção Científica Moderna: Quais filmes são do gênero 'Ficção Científica' E foram lançados a partir de 2010?
 SELECT F.titulo, F.ano_lancamento, G.nome_genero FROM Filmes AS F JOIN Generos AS G ON F.id_genero = G.id_genero WHERE G.nome_genero = 'Ficção Científica' AND F.ano_lancamento >= 2010;
 
--- Sessão da Tarde: Quais filmes são do gênero 'Drama' OU do gênero 'Animação'? 
+-- 4) Sessão da Tarde: Quais filmes são do gênero 'Drama' OU do gênero 'Animação'? 
 SELECT F.titulo, G.nome_genero FROM Filmes AS F JOIN Generos AS G ON F.id_genero = G.id_genero WHERE G.nome_genero = 'Drama' OR G.nome_genero = 'Animação';
 
--- Excluindo um Título: Liste todos os filmes, exceto o filme com o título 'Matrix'.
+-- 5) Excluindo um Título: Liste todos os filmes, exceto o filme com o título 'Matrix'.
 SELECT titulo FROM Filmes WHERE titulo != 'Matrix';
+-- OU
+SELECT TITULO from Filmes WHERE titulo <> 'Matrix';
 
 
 
