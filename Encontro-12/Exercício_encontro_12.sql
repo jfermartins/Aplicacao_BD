@@ -19,9 +19,17 @@ INSERT INTO Padaria_Produtos (Nome_Produto, Descricao, Preco, Estoque) VALUES
 ('Sonho de Creme', 'Doce frito recheado com creme de baunilha.', 4.50, 30),
 ('Café Expresso', 'Café forte e encorpado.', 3.00, 50);
 
+-- restrição CHECK 
+INSERT INTO Padaria_Produtos (Nome_Produto, Descricao, Preco, Estoque)
+VALUES ('Coxinha', 'Coxinha de frango com catupiry.', 6.00, -10);
+
 -- Atualizar pelo menos 1 desses registros
 UPDATE Padaria_Produtos
 SET Preco = 0.60, Estoque = 150
+WHERE ID_Produto = 2;
+
+UPDATE Padaria_Produtos
+SET Preco = 3.50, Estoque = 150
 WHERE Nome_Produto = 'Pão Francês';
 
 -- Excluir 1 desses registros
