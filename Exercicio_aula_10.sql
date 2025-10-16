@@ -131,6 +131,12 @@ ORDER BY
     preco DESC
 LIMIT 3;
 
+-- Usando o comando TOP
+SELECT TOP 3 nome_produto AS Produto, preco AS Valor
+FROM Aula_10_Produtos
+WHERE categoria = 'Eletrônicos' AND estoque > 0
+ORDER BY preco DESC;
+
 
 
 

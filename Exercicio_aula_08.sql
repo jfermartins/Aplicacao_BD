@@ -61,6 +61,10 @@ VALUES
 ('2025-06-03', 1, 1, 10, 125.00),
 ('2025-06-03', 2, 2, 2, 18.00);
 
+INSERT INTO Aula08_Clientes (nome, cpf, email, telefone)
+VALUES ('Carla Reis', '11122233344', 'carla.reis@email.com', '(11) 97777-6666');
+
+
 SELECT * 
 FROM Aula08_Fornecedores;
 
@@ -267,9 +271,9 @@ CREATE TABLE Professor_curso (
     FOREIGN KEY (id_professor) REFERENCES Professor(id_professor),
     CONSTRAINT fk_professor_curso_curso 
     FOREIGN KEY (id_curso) REFERENCES Curso(id_curso)
-);
-
-CREATE TABLE Comentario (
+); 
+ 
+CREATE TABLE Comentario ( 
     id_comentario INT PRIMARY KEY AUTO_INCREMENT,
     comentario TEXT,
     nota_professor DECIMAL(3,1),
