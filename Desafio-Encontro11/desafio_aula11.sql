@@ -19,6 +19,16 @@ CREATE TABLE IF NOT EXISTS Filmes (
     FOREIGN KEY (id_genero) REFERENCES Generos(id_genero)
 );
 
+-- Criação da tabela Vendas
+CREATE TABLE IF NOT EXISTS Vendas (
+    id_venda INT AUTO_INCREMENT PRIMARY KEY,
+    id_filme INT NOT NULL,
+    quantidade INT NOT NULL,
+    data_venda DATE NOT NULL,
+    CONSTRAINT fk_vendas_filme
+    FOREIGN KEY (id_filme) REFERENCES Filmes(id_filme)
+);
+
 
 
 -- Inserção de dados na tabela Generos
@@ -49,6 +59,18 @@ INSERT INTO Filmes (titulo, ano_lancamento, nota_avaliacao, id_genero) VALUES
 ('O Resgate do Soldado Ryan', 1998, 8.6, (SELECT id_genero FROM Generos WHERE nome_genero = 'Drama')),
 ('Vingadores: Ultimato', 2019, 8.4, (SELECT id_genero FROM Generos WHERE nome_genero = 'Ação')),
 ('Clube da Luta', 1999, 8.8, (SELECT id_genero FROM Generos WHERE nome_genero = 'Drama'));
+
+-- Inserção de dados na tabela Vendas
+INSERT INTO Vendas (id_filme, quantidade, data_venda) VALUES
+((SELECT id_filme FROM Filmes WHERE titulo = 'Matrix'), 2, '2025-01-10'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'O Poderoso Chefão'), 1, '2025-01-15'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'A Viagem de Chihiro'), 3, '2025-01-12'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'Interestelar'), 1, '2025-02-01'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'Matrix'), 1, '2025-02-05'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'Pulp Fiction'), 2, '2025-02-10'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'O Rei Leão'), 1, '2025-02-15'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'A Origem'), 2, '2025-03-01'),
+((SELECT id_filme FROM Filmes WHERE titulo = 'Vingadores: Ultimato'), 3, '2025-03-05');
 
 -- 1) Clássicos do Século XX: Quais filmes do catálogo foram lançados antes do ano 2000?
 SELECT titulo, ano_lancamento FROM Filmes WHERE ano_lancamento < 2000;
