@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS Livros (
     id_livro INT AUTO_INCREMENT PRIMARY KEY,
     titulo_livro VARCHAR(255) NOT NULL,
     id_autor INT NOT NULL,
+    CONSTRAINT fk_autores
     FOREIGN KEY (id_autor) REFERENCES Autores(id_autor)
 );
 
@@ -22,6 +23,7 @@ CREATE TABLE IF NOT EXISTS Vendas (
     id_livro INT NOT NULL,
     quantidade INT NOT NULL,
     data_venda DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_livros
     FOREIGN KEY (id_livro) REFERENCES Livros(id_livro)
 );
 
