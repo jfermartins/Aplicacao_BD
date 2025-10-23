@@ -82,6 +82,8 @@ ORDER BY
     v.data_venda, v.id;
     
     
+    
+    
     -- Deletar os inserts duplicados
 DELETE t1
 FROM A15_Produto t1
